@@ -41,11 +41,10 @@ int	main(void)
 {	
     int	comb[14];
     int N;
-	int	x = 0;
 	int	total = 0;
 
     std::cin >> N;
-	place_queen(x, comb, &total, N);
+	place_queen(0, comb, &total, N);
     std::cout << total << std::endl;	
 	return (0);
 }

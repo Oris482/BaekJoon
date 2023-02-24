@@ -3,11 +3,12 @@
 #include <algorithm>
 
 using namespace std;
-// 1 2 3 4 5
 int height = 0;
 int treeArr[1000000] = {0,};
 
 void findHeight(int start, int end, const int N, const int M) {
+    if (start > end || end < start) return ;
+
     int targetHeight = (start + end) / 2;
     unsigned long long  cuttedTreeLen = 0;
 
@@ -17,10 +18,8 @@ void findHeight(int start, int end, const int N, const int M) {
     }
     if (cuttedTreeLen >= M) {
         if (height < targetHeight) height = targetHeight;
-        if (start == end) return;
         findHeight(targetHeight + 1, end, N, M);
     } else {
-        if (start > targetHeight - 1) return;
         findHeight(start, targetHeight - 1, N, M);
     }
 }
